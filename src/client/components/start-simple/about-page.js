@@ -4,7 +4,7 @@ import {Link, NavLink} from "react-router-dom"
 const AboutPage = () => (
   <div className="container">
     <header>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <Link className="navbar-brand" to="/">React Sandbox</Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
@@ -21,7 +21,7 @@ const AboutPage = () => (
           </ul>
           <ul className="navbar-nav">
             <li className="nav-item">
-              <span className="nav-text">v1.0.0</span>
+              <span className="nav-text text-light">v1.0.0</span>
             </li>
           </ul>
         </div>

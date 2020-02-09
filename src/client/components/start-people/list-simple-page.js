@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from "react"
 import ajax from "../../lib/ajax"
-import DefaultLayout from "../common/default-layout"
-import PeopleList from "./people-list"
-import PeopleControls from "./people-controls"
+import DefaultLayout from "./default-layout"
+import {Link} from "react-router-dom"
 
 const PeoplePage = () => {
   const [people, setPeople] = useState([])
@@ -19,7 +18,7 @@ const PeoplePage = () => {
     }
   }
 
-  const addPerson = async (totalPeople) => {
+  const addToServer = async (totalPeople) => {
     try {
       let newPerson = {name: "George", age: 30 + totalPeople, id: totalPeople + 1}
       let response = await ajax({url: "http://localhost:3001/people", method: "POST", data: newPerson})
@@ -33,8 +32,6 @@ const PeoplePage = () => {
 
   useEffect(() => {
     //happens every render
-    debugger
-
     console.log("useEffect onload only, denoted by: []")
     refresh()
   }, [])
@@ -42,8 +39,28 @@ const PeoplePage = () => {
   return (
     <DefaultLayout>
       <h1>People</h1>
-      <PeopleControls addPerson={addPerson} people={people} refresh={refresh}/>
-      <PeopleList data={people} />
+      <p>
+        <button className="btn btn-primary mr-1" onClick={() => {refresh()}}>Refresh</button>
+        <button className="btn btn-secondary" onClick={() => {addToServer(people.length)}}>Add</button>
+      </p>
+      {people.length ? (
+        <table className="table table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Age</th>
+            </tr>
+          </thead>
+          <tbody>
+            {people.map((p,px) => (
+              <tr key={px}>
+                <td><Link to={`/people/${p.id}`}>{p.name}</Link></td>
+                <td>{p.age}</td>
+              </tr>))}
+          </tbody>
+        </table>
+      ) : (<span>No people to display</span>)}
+
       <p>{status}</p>
     </DefaultLayout>
   )

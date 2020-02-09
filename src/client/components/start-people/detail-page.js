@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from "react"
-import {Link, useRouteMatch} from "react-router-dom"
+import {Link, useParams} from "react-router-dom"
 import ajax from "../../lib/ajax"
-import DefaultLayout from "../common/default-layout"
-import _get from "lodash/get"
+import DefaultLayout from "./default-layout"
 
 const PersonPage = () => {
   const [data, setData] = useState()
   const [message, setMessage] = useState()
-  let match = useRouteMatch()
+  const params = useParams()
 
   const loadPerson = async (personId) => {
     console.log(`PersonPage: loadPerson called... personId: ${personId}`)
@@ -21,11 +20,10 @@ const PersonPage = () => {
 
   //will re-run on every render where the match.id is different.
   useEffect(() => {
-    let id = match.params.id
     console.log("PersonPage: useEffect invoked...")
-    if (id) loadPerson(id)
+    if (typeof params.id !== "undefined") loadPerson(params.id)
     else setMessage("Invalid person id.")
-  }, [_get(match, "params.id")])
+  }, [params.id])
 
   return (
     <DefaultLayout>
@@ -33,8 +31,7 @@ const PersonPage = () => {
       {data ? (<div>
         <h1>{data.name}</h1>
         <h3 className="text-secondary">Age {data.age}</h3>
-        <p>We have access to the current path: {match.path}</p>
-        <pre>{JSON.stringify(match)}</pre>
+        <pre>{JSON.stringify(params)}</pre>
       </div>) : (<span>Loading...</span>)}
 
       <h3>Two links</h3>
@@ -46,7 +43,7 @@ const PersonPage = () => {
 
       <h3>Two links</h3>
       <p>Render is called, but nothing changes. match.params.id remains the same, so useEffect is not triggered.</p>
-      <p><button type="button" className="btn btn-secondary" onClick={() => {loadPerson(match.params.id)}}>Refresh</button></p>
+      <p><button type="button" className="btn btn-secondary" onClick={() => {loadPerson(params.id)}}>Refresh</button></p>
     </DefaultLayout>
   )
 }

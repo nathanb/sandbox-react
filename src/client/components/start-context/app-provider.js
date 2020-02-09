@@ -5,7 +5,8 @@ const AppProvider = ({children}) => {
   const [user, setUser] = useState(null)
   const [account, setAccount] = useState(null)
   const [authenticated, setAuthenticated] = useState(false)
-  const [backgroundUpdateData, setBackgroundUpdateData] = useState(null)
+  const [backgroundUpdateData, setBackgroundUpdateData] = useState(0)
+  const [busy, setBusy] = useState(false)
 
 
   useEffect(() => {
@@ -23,11 +24,14 @@ const AppProvider = ({children}) => {
   }, [])
   return (
     <AppContext.Provider value={{
-      context: {user, account, authenticated, backgroundUpdateData}
+      context: {user, account, authenticated, backgroundUpdateData, busy}
+      ,setBusy: (v) => {setBusy(v)}
       ,refresh: () => {
         //do the refresh work..
+        setBusy(true)
         setTimeout(() => {
           console.log("AppContext.Provider: manual refresh")
+          setBusy(false)
           setUser({username: "fred"})
           setAccount({accountId: "123F"})
           setAuthenticated(true)
@@ -47,7 +51,7 @@ const AppProvider = ({children}) => {
 //       user: null
 //       ,account: null
 //       ,authenticated: false
-//       ,backgroundUpdateData: null
+//       ,backgroundUpdateData: 0
 //     }
 //
 //     this.randomData = this.randomData.bind(this)
