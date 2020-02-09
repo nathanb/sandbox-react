@@ -64,7 +64,7 @@ const buildConfig = (options = {}) => {
         hash: true,
         base: "/",
         template: './src/client/index.html',
-        filename: 'index.html',
+        filename: `${name}.html`,
         inject: false
       })
       //TODO: Enable this to checkout your production build disk size
