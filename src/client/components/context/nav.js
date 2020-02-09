@@ -1,5 +1,7 @@
 import React from "react"
 import {Link, NavLink} from "react-router-dom"
+import CurrentUserNavItem from "./current-user-nav"
+import RandomDataUpdateItem from "./random-data-nav"
 
 const HeaderNav = () => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -20,6 +22,8 @@ const HeaderNav = () => (
           <NavLink to="/about" exact={true} className="nav-link">About</NavLink>
         </li>
       </ul>
+      <RandomDataUpdateItem />
+      <CurrentUserNavItem />
       <span className="nav-text">v1.0.0</span>
     </div>
   </nav>

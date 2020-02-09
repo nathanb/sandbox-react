@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react"
 import {Link, useRouteMatch} from "react-router-dom"
 import ajax from "../../lib/ajax"
-import DefaultLayout from "../common/default-layout"
+import DefaultLayout from "./default-layout"
 import _get from "lodash/get"
 
 const PersonPage = () => {
@@ -10,7 +10,7 @@ const PersonPage = () => {
   let match = useRouteMatch()
 
   const loadPerson = async (personId) => {
-    console.log(`PersonPage: loadPerson called... personId: ${personId}`)
+    console.log(`loadPerson called... personId: ${personId}`)
     try {
       let response = await ajax({url: `http://localhost:3001/people/${personId}`})
       setData(response.body)
