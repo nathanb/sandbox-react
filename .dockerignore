@@ -1,0 +1,12 @@
+*.seed
+*.log
+*.dat
+*.out
+*.pid
+*.gz
+.git
+.DS_Store
+env.*.sh
+node_modules
+bower_components
+Thumbs.db

@@ -1,0 +1,25 @@
+version: '3'
+services:
+  prod-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+     - "3001:3001"
+    tty: true
+    environment:
+      HOSTNAME: "localhost:3001"
+      NODE_ENV: "production"
+      PORT: 3001
+    command: ["npm","run","api"]
+  prod-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+     - "3000:3000"
+    tty: true
+    environment:
+      HOSTNAME: "localhost:3000"
+      NODE_ENV: "production"
+    command: ["npm","run","web"]

@@ -1,0 +1,9 @@
+{
+  "reporter": "spec",
+  "ui": "bdd",
+  "extension": ["js","coffee"],
+  "colors": true,
+  "recursive": true,
+  "require": ["coffeescript/register", "@babel/register"],
+  "exit": true
+}
