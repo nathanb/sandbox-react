@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from "react"
 import ajax from "../../lib/ajax"
 import DefaultLayout from "./default-layout"
-import PeopleList from "./people-list"
-import PeopleControls from "./people-controls"
+import PeopleList from "../people/list"
+import PeopleControls from "../people/controls"
 
 const PeoplePage = () => {
   const [people, setPeople] = useState([])

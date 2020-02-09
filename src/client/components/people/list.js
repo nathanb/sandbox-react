@@ -1,13 +1,6 @@
 import React from "react"
-import {Link} from "react-router-dom"
 import PropTypes from "prop-types"
-
-const Row = ({p}) => (
-  <tr>
-    <td><Link to={`/people/${p.id}`}>{p.name}</Link></td>
-    <td>{p.age}</td>
-  </tr>
-)
+import PersonRow from "./row"
 
 const PeopleList = ({data}) => (
   <div>
@@ -20,7 +13,7 @@ const PeopleList = ({data}) => (
           </tr>
         </thead>
         <tbody>
-          {data.map((p,px) => (<Row key={px} p={p} />))}
+          {data.map((p,px) => (<PersonRow key={px} person={p} />))}
         </tbody>
       </table>
     ) : (<span>No people to display</span>)}
