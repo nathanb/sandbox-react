@@ -11,10 +11,10 @@ const HeaderNav = () => (
     <div className="collapse navbar-collapse" id="navbarColor03">
       <ul className="navbar-nav mr-auto">
         <li className="nav-item">
-          <NavLink to="/" exact={true} className="nav-link" activeClassName="active">Home</NavLink>
+          <NavLink to="/" exact={true} className="nav-link">Home</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink to="/about" exact={true} className="nav-link" activeClassName="active">About</NavLink>
+          <NavLink to="/about" exact={true} className="nav-link">About</NavLink>
         </li>
       </ul>
       <ul className="navbar-nav">
