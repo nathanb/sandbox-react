@@ -5,7 +5,14 @@ I wanted to show the use of CORS with a client-side only hosted app connecting t
 
 See: router options for different stages of the demo.
 
- - [./src/client/index.js](./src/client/index.js) (main entry point)
+### [./src/client/index.js](./src/client/index.js) (main entry point)
+
+### Enable these lines for different stages
+ - [Stage 1; HTML React; basics of JSX](https://github.com/nathanb/sandbox-react/blob/master/src/client/index.js#L5).
+ - [Stage 2; Encapsulating Layout, using react-router](https://github.com/nathanb/sandbox-react/blob/master/src/client/index.js#L6).
+ - [Stage 3; Data... Lets render data from XHR requests](https://github.com/nathanb/sandbox-react/blob/master/src/client/index.js#L7). (Showing [`list-simple-page`](https://github.com/nathanb/sandbox-react/blob/master/src/client/components/start-people/routes.js#L7) first)
+   - [Stage 3; Part 2, Cleaning up our components](https://github.com/nathanb/sandbox-react/blob/master/src/client/components/start-people/routes.js#L7) (Use `list-page` instead)
+ - [Stage 4; Fancy stuff.. background-updates, using React Context](https://github.com/nathanb/sandbox-react/blob/master/src/client/index.js#L8).
 
 ## Setup
 
