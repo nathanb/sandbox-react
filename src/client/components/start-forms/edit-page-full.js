@@ -1,24 +1,25 @@
 import React, {useEffect, useState, useRef} from "react"
 import {Link, useParams, useHistory} from "react-router-dom"
-import ajax from "../../lib/ajax"
+import fetchJson from "../../lib/fetch-json"
 import DefaultLayout from "../start-context/default-layout"
 
 const PersonEditPage = () => {
   const [data, setData] = useState({name: "", age: 0, id: ""})
-  const [message, setMessage] = useState()
+  const [error, setError] = useState(null)
   const [formClassName, setFormClassName] = useState("needs-validation")
   const params = useParams()
   const history = useHistory()
   const formRef = useRef(null)
 
   const loadPerson = async (personId) => {
-    try {
-      let response = await ajax({url: `http://localhost:3001/people/${personId}`})
-      setData(response.body)
-    } catch(err) {
-      setMessage(err.message)
-    }
+    console.log(`PersonPage: loadPerson called... personId: ${personId}`)
+    let result = await fetchJson(`http://localhost:3001/people/${personId}`)
+    if (result.ok)
+      setData(result.json)
+    else
+      setError(result.errorMessage)
   }
+
   const onChange = (e) => {
     let name = e.target.name
     let value = e.target.value
@@ -28,33 +29,32 @@ const PersonEditPage = () => {
     console.log(`changed ${name} to ${value}`)
   }
   const onSaveClicked = async (e) => {
-    setMessage(null)
+    setError(null)
     setFormClassName("needs-validation")
     event.preventDefault()
     event.stopPropagation()
 
     if (formRef.current.checkValidity() === true) {
-      try {
-        await ajax({url: `http://localhost:3001/people/${params.id}`, method: "PUT", data})
-        history.push(`/people/${params.id}`)
-      } catch(err) {
-        if (err.status === 400)
-          setMessage(err.response.text)
-        else setMessage(err.message)
-      }
+      let result = await fetchJson(`http://localhost:3001/people/${params.id}`, {method: "PUT", json: data})
+      if (result.ok)
+        //if successful, redirect to the view page
+        return history.push(`/people/${params.id}`)
+
+      if (result.status === 400) {
+        setError(result.json.map(e => e.message).join("\n"))
+      } else setError(result.errorMessage)
     }
     setFormClassName("was-validated")
   }
 
   //will re-run on every render where the match.id is different.
   useEffect(() => {
-    let id = params.id
-    if (id) loadPerson(id)
+    if (typeof params.id !== "undefined") loadPerson(params.id)
   }, [params.id])
 
   return (
     <DefaultLayout>
-      {message ? (<div className="alert alert-danger">{message}</div>) : null}
+      {error ? (<div className="alert alert-danger">{error}</div>) : null}
       <h1>Editing Person</h1>
       <form ref={formRef} className={formClassName} noValidate={true} onSubmit={onSaveClicked}>
         <div className="form-group row">

@@ -34,10 +34,7 @@ app.use((req, res, next) => {
 
 app.use((err, req, res, next) => {
   if (err.isJoi) {
-    let errors = err.details.map(e => e.message).join("\n")
-    let e = new Error(errors)
-    e.status = 400
-    return next(e)
+    return res.status(400).json(err.details)
   }
   return next(err)
 })

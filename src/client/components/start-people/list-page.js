@@ -1,45 +1,50 @@
 import React, {useState, useEffect} from "react"
-import ajax from "../../lib/ajax"
 import DefaultLayout from "./default-layout"
 import PeopleList from "../people/list"
 import PeopleControls from "../people/controls"
+import fetchJson from "../../lib/fetch-json"
+import Alert from "../common/alert"
 
 const PeoplePage = () => {
   const [people, setPeople] = useState([])
   const [status, setStatus] = useState(null)
+  const [error, setError] = useState(null)
 
-  const refresh = async () => {
+  async function loadPeople() {
     setStatus("loading...")
-    try {
+    setError(null)
+    const result = await fetchJson("http://localhost:3001/people")
+    if (result.ok) {
+      setPeople(result.json)
       setStatus(null)
-      let response = await ajax({url: "http://localhost:3001/people"})
-      setPeople(response.body)
-    } catch(err) {
-      setStatus(err.message)
+    } else {
+      setError(result.errorMessage)
     }
   }
 
   const addPerson = async (totalPeople) => {
-    try {
-      let newPerson = {name: "George", age: 30 + totalPeople, id: totalPeople + 1}
-      let response = await ajax({url: "http://localhost:3001/people", method: "POST", data: newPerson})
-      setStatus(`Added new person: ${response.body.id}`)
-      //we can update on the client side using client data... or we can reload.
-      refresh()
-    } catch (err) {
-      setStatus(err.message)
+    setError(null)
+    let newPerson = {name: "George", age: 30 + totalPeople, id: totalPeople + 1}
+    let result = await fetchJson("http://localhost:3001/people", {method: "POST", json: newPerson})
+    if (result.ok) {
+      let responseBody = result.json
+      setStatus(`Added new person: ${responseBody.id}`)
+      loadPeople()
+    } else {
+      setError(result.errorMessage)
     }
   }
 
   useEffect(() => {
-    console.log("useEffect onload only, denoted by: []")
-    refresh()
+    console.log("PeoplePage: useEffect onload only, denoted by: []")
+    loadPeople()
   }, [])
 
   return (
     <DefaultLayout>
       <h1>People</h1>
-      <PeopleControls addPerson={addPerson} people={people} refresh={refresh}/>
+      <Alert message={error}/>
+      <PeopleControls addPerson={addPerson} people={people} refresh={loadPeople}/>
       <PeopleList data={people} />
       <p>{status}</p>
     </DefaultLayout>

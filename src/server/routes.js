@@ -5,9 +5,11 @@ var people    = [{id: "0", name: "Fred", age: 44}, {id: "1", name: "George", age
 const _assignIn = require("lodash/assignIn")
 
 router.get("/people", (req, res, next) => {
+  // return res.status(500).json({error: "pink fluffy slippers"})
   return res.json(people)
 })
 router.post("/people", (req, res, next) => {
+  // return res.status(500).json({error: "pink fluffy slippers 2"})
   let newPerson = req.body
   newPerson.id = `${people.length + 1}` //example...
   people.push(newPerson)
@@ -20,7 +22,7 @@ router.get("/people/:id", (req, res, next) => {
 })
 
 const personSchema = joi.object({
-  name: joi.string().required().trim().max(100)
+  name: joi.string().alphanum().required().trim().max(100)
   ,age: joi.number().required().max(200).min(0)
   ,id: joi.string().alphanum().max(200).required()
 })

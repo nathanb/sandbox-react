@@ -3,26 +3,32 @@ module.exports = {
   "extends": "eslint:recommended",
   "parser": "babel-eslint",
   "rules": {
-    "semi"                    : ["error", "never"],
-    "indent"                  : ["error", 2, {"SwitchCase":1, "VariableDeclarator": { "var": 2, "let": 2, "const": 3}}],
-    "linebreak-style"         : ["error", "unix"],
-    "eqeqeq"                  : ["error", "smart"],
-    "brace-style"             : ["error", "1tbs", {"allowSingleLine": true}],
-    "camelcase"               : ["error", {"properties": "never"}],
-    "no-trailing-spaces"      : "error",
-    "no-mixed-spaces-and-tabs": "error",
-    "no-tabs"                 : "error",
-    "no-console"              : "off",
-    "no-fallthrough"          : "off",
-    "no-unused-vars"          : ["error", {"vars": "all", "args": "none"}],
-    "react/jsx-uses-react"    : "error",
-    "react/jsx-uses-vars"     : "error"
+    "semi"                      : ["error", "never"],
+    "indent"                    : ["error", 2, {"SwitchCase":1, "VariableDeclarator": { "var": 2, "let": 2, "const": 3}}],
+    "linebreak-style"           : ["error", "unix"],
+    "eqeqeq"                    : ["error", "smart"],
+    "brace-style"               : ["error", "1tbs", {"allowSingleLine": true}],
+    "camelcase"                 : ["error", {"properties": "never"}],
+    "no-trailing-spaces"        : "error",
+    "no-mixed-spaces-and-tabs"  : "error",
+    "no-tabs"                   : "error",
+    "no-console"                : "off",
+    "no-fallthrough"            : "off",
+    "no-unused-vars"            : ["error", {"vars": "all", "args": "none"}],
+    "react/jsx-uses-react"      : "error",
+    "react/jsx-uses-vars"       : "error",
+    "jest/no-disabled-tests"    : "warn",
+    "jest/no-focused-tests"     : "error",
+    "jest/no-identical-title"   : "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect"         : "error"
   },
   "env": {
     "es6": true,
     "browser": true,
     "node": true,
-    "mocha": true
+    "mocha": true,
+    "jest/globals": true
   },
   "parserOptions": {
     "sourceType": "module"
@@ -30,7 +36,7 @@ module.exports = {
       "jsx": true
     }
   },
-  "plugins": ["react"],
+  "plugins": ["react", "jest"],
   "globals": {
     "moment": true
     ,"jbn": true

@@ -1,34 +1,33 @@
 import React, {useEffect, useState} from "react"
 import {Link, useParams} from "react-router-dom"
-import ajax from "../../lib/ajax"
+import fetchJson from "../../lib/fetch-json"
 import DefaultLayout from "../start-context/default-layout"
+import Alert from "../common/alert"
 
 const PersonPage = () => {
   const [data, setData] = useState()
-  const [message, setMessage] = useState()
-  let params = useParams()
+  const [error, setError] = useState(null)
+  const params = useParams()
 
   const loadPerson = async (personId) => {
-    console.log(`loadPerson called... personId: ${personId}`)
-    try {
-      let response = await ajax({url: `http://localhost:3001/people/${personId}`})
-      setData(response.body)
-    } catch(err) {
-      setMessage(err.message)
-    }
+    console.log(`PersonPage: loadPerson called... personId: ${personId}`)
+    let result = await fetchJson(`http://localhost:3001/people/${personId}`)
+    if (result.ok)
+      setData(result.json)
+    else
+      setError(result.errorMessage)
   }
 
   //will re-run on every render where the match.id is different.
   useEffect(() => {
-    let id = params.id
     console.log("PersonPage: useEffect invoked...")
-    if (typeof id !== "undefined") loadPerson(id)
-    else setMessage("Invalid person id.")
+    if (typeof params.id !== "undefined") loadPerson(params.id)
+    else setError("Invalid person id.")
   }, [params.id])
 
   return (
     <DefaultLayout>
-      {message ? (<div className="alert alert-danger">{message}</div>) : null}
+      <Alert message={error}/>
       {data ? (<div>
         <h1>{data.name}</h1>
         <h3 className="text-secondary">Age {data.age}</h3>
