@@ -5,10 +5,10 @@
   "main": "bin/www",
   "scripts": {
     "test": "mocha --config test/.mocharc.json \"./test/**/*.{js,coffee}\"",
-    "dev-web": "bin/dev-web",
-    "dev-api": "bin/dev-api",
-    "web": "bin/web",
-    "api": "bin/api"
+    "dev-web": "webpack -d && webpack-dev-server --port 3000",
+    "dev-api": "env PORT=3001 nodemon --inspect=0.0.0.0 -L -w src/server bin/api",
+    "web": "node bin/web",
+    "api": "node bin/api"
   },
   "repository": {
     "type": "git",
