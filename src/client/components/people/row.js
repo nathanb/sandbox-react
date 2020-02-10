@@ -10,7 +10,7 @@ const PeopleRow = ({person}) => (
 )
 
 PeopleRow.propTypes = {
-  person: PropTypes.array.isRequired
+  person: PropTypes.object.isRequired
 }
 
 export default PeopleRow

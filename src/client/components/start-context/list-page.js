@@ -21,7 +21,7 @@ const PeoplePage = () => {
 
   const addPerson = async (totalPeople) => {
     try {
-      let newPerson = {name: "George", age: 30 + totalPeople, id: totalPeople + 1}
+      let newPerson = {name: "George", age: 30 + totalPeople, id: `${totalPeople + 1}`}
       let response = await ajax({url: "http://localhost:3001/people", method: "POST", data: newPerson})
       setStatus(`Added new person: ${response.body.id}`)
       //we can update on the client side using client data... or we can reload.
