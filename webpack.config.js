@@ -68,10 +68,10 @@ const buildConfig = (options = {}) => {
         inject: false
       })
       //TODO: Enable this to checkout your production build disk size
-      ,new BundleAnalyzerPlugin({
-        analyzerMode: "static"
-        ,openAnalyzer: true
-      })
+      // ,new BundleAnalyzerPlugin({
+      //   analyzerMode: "static"
+      //   ,openAnalyzer: true
+      // })
     ]
     ,module: {
       rules: [

@@ -1,6 +1,6 @@
 import _defaults from "lodash/defaults"
 
-const fetchJson = async (url, options = {}) => {
+export async function fetchJson(url, options = {}) {
   let result = {}
   try {
     let args = _defaults(options, {
