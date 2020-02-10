@@ -1,5 +1,7 @@
 # React Demo
 
+[![Build Status](https://travis-ci.org/nathanb/sandbox-react.svg?branch=master)](https://travis-ci.org/nathanb/sandbox-react)
+
 ## Notes
 I wanted to show the use of CORS with a client-side only hosted app connecting to a different hostname for server API calls. This is a deliberately over-simplified solution.
 
