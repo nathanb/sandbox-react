@@ -13,8 +13,10 @@ See: router options for different stages of the demo.
  - [Stage 1; HTML React; basics of JSX](https://github.com/nathanb/sandbox-react/blob/master/src/client/index.js#L5).
  - [Stage 2; Encapsulating Layout, using react-router](https://github.com/nathanb/sandbox-react/blob/master/src/client/index.js#L6).
  - [Stage 3; Data... Lets render data from XHR requests](https://github.com/nathanb/sandbox-react/blob/master/src/client/index.js#L7). (Showing [`list-simple-page`](https://github.com/nathanb/sandbox-react/blob/master/src/client/components/start-people/routes.js#L7) first)
-   - [Stage 3; Part 2, Cleaning up our components](https://github.com/nathanb/sandbox-react/blob/master/src/client/components/start-people/routes.js#L7) (Use `list-page` instead)
+   - [Stage 3, Part 2; Cleaning up our components](https://github.com/nathanb/sandbox-react/blob/master/src/client/components/start-people/routes.js#L7) (Use `list-page` instead)
  - [Stage 4; Fancy stuff.. background-updates, using React Context](https://github.com/nathanb/sandbox-react/blob/master/src/client/index.js#L8).
+ - [Stage 5; Forms & Validation](https://github.com/nathanb/sandbox-react/blob/master/src/client/index.js#L9).
+   - [Stage 5, Part 2; Breaking apart re-usable components](https://github.com/nathanb/sandbox-react/blob/master/src/client/components/start-forms/routes.js#L10) (Enable this line).
 
 ## Setup
 
