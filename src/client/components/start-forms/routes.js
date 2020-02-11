@@ -6,8 +6,8 @@ import IndexPage from "../start-context/index-page"
 import AboutPage from "../start-context/about-page"
 import PeoplePage from "../start-context/list-page"
 import PersonPage from "./detail-page"
-import PersonEditPage from "./edit-page-full"
-// import PersonEditPage from "./edit-page"
+// import PersonEditPage from "./edit-page-full"
+import PersonEditPage from "./edit-page"
 
 const Routes = () => (
   <Switch>
