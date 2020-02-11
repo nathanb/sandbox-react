@@ -6,7 +6,7 @@ import PersonForm from "./person-form"
 import Alert from "../common/alert"
 
 const PersonEditPage = () => {
-  const [data, setData] = useState({name: "", age: 0, id: ""})
+  const [data, setData] = useState({name: "", age: 0, id: "", hasHair: true, hairColor: "brown"})
   const [error, setError] = useState(null)
   const params = useParams()
   const history = useHistory()
@@ -20,17 +20,9 @@ const PersonEditPage = () => {
       setError(result.errorMessage)
   }
 
-  const onFieldChanged = (e) => {
-    let name = e.target.name
-    let value = e.target.value
-    let shallowClone = {...data}
-    shallowClone[name] = value
-    setData(shallowClone)
-    console.log(`changed ${name} to ${value}`)
-  }
-  const onSave = async (e) => {
+  const onSave = async (newData) => {
     setError(null)
-    let result = await fetchJson(`http://localhost:3001/people/${params.id}`, {method: "PUT", json: data})
+    let result = await fetchJson(`http://localhost:3001/people/${params.id}`, {method: "PUT", json: newData})
     if (result.ok)
       //if successful, redirect to the view page
       return history.push(`/people/${params.id}`)
@@ -49,7 +41,7 @@ const PersonEditPage = () => {
     <DefaultLayout>
       <Alert message={error}/>
       <h1>Editing Person</h1>
-      <PersonForm person={data} onFieldChanged={onFieldChanged} onSave={onSave}/>
+      <PersonForm person={data} onSave={onSave}/>
     </DefaultLayout>
   )
 }

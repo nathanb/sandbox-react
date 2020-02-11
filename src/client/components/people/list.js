@@ -10,6 +10,9 @@ const PeopleList = ({data}) => (
           <tr>
             <th>Name</th>
             <th>Age</th>
+            <th>Has Hair</th>
+            <th>Hair Color</th>
+            <th>randomField</th>
           </tr>
         </thead>
         <tbody>

@@ -22,7 +22,7 @@ const PeoplePage = () => {
 
   const addPerson = async (totalPeople) => {
     setError(null)
-    let newPerson = {name: "George", age: 30 + totalPeople, id: totalPeople + 1}
+    let newPerson = {name: "George", age: 30 + totalPeople}
     let result = await fetchJson("http://localhost:3001/people", {method: "POST", json: newPerson})
     if (result.ok) {
       let responseBody = result.json

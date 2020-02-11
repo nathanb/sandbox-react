@@ -6,6 +6,9 @@ const PeopleRow = ({person}) => (
   <tr>
     <td><Link to={`/people/${person.id}`}>{person.name}</Link></td>
     <td>{person.age}</td>
+    <td>{person.hasHair ? "Yes" : ""}</td>
+    <td>{person.hairColor}</td>
+    <td>{person.randomField}</td>
   </tr>
 )
 

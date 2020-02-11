@@ -27,7 +27,13 @@ I've provided both dev mode and a simulated production mode for this project. De
  - Run tests in the container: `docker-compose -f test.yml run test` or `./bin/t`
 
 ## References:
- - [Getting started with React](https://reactjs.org/docs/getting-started.html#learn-react)
- - [React Router API](https://reacttraining.com/react-router/web/guides/quick-start)
- - [Bootstrap 4](https://getbootstrap.com/docs/4.4/getting-started/introduction/)
- - [WebPack 4 config](https://webpack.js.org/configuration/)
+ - [Getting started with React (ui framework)](https://reactjs.org/docs/getting-started.html#learn-react)
+ - [React Router API (internal routing for SPA)](https://reacttraining.com/react-router/web/guides/quick-start)
+ - [Bootstrap 4 (styling framework)](https://getbootstrap.com/docs/4.4/getting-started/introduction/)
+ - [WebPack 4 (build toolchain)](https://webpack.js.org/configuration/)
+ - [Babel 7 (transpiler for ES5/browsers)](https://babeljs.io/docs/en/)
+
+## Server-side frameworks
+ - [@hapi/joi (server-side validation framework)](https://hapi.dev/family/joi/)
+ - [Express 4 (minimalist web framework - simplifies http)](https://expressjs.com/en/guide/routing.html)
+ - [Node.js 12 LTS](https://nodejs.org/dist/latest-v12.x/docs/api/)
