@@ -1,3 +1,0 @@
-#!/bin/sh -e
-export PATH=node_modules/.bin:$PATH
-env PORT=3001 nodemon --inspect=0.0.0.0 -L -w src/server bin/api
