@@ -2,7 +2,7 @@ import React from 'react'
 import {Route, Switch} from "react-router-dom"
 
 import NotFoundPage from "../not-found-page"
-import IndexPage from "./index-page" //"index" left for verbosity
+import IndexPage from "./index-page"
 import AboutPage from "./about-page"
 
 const Routes = () => (

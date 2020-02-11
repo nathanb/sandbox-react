@@ -2,12 +2,12 @@ import React from 'react'
 import {Route, Switch} from "react-router-dom"
 
 import NotFoundPage from "../not-found-page"
-import IndexPage from "../start-context/index-page" //"index" left for verbosity
+import IndexPage from "../start-context/index-page"
 import AboutPage from "../start-context/about-page"
 import PeoplePage from "../start-context/list-page"
 import PersonPage from "./detail-page"
-// import PersonEditPage from "./edit-page-full"
-import PersonEditPage from "./edit-page"
+import PersonEditPage from "./edit-page-full"
+// import PersonEditPage from "./edit-page"
 
 const Routes = () => (
   <Switch>
