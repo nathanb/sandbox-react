@@ -1,7 +1,7 @@
 const express   = require("express")
 const router    = express.Router()
 const joi       = require("@hapi/joi")
-var people    = [{id: "0", name: "Fred", age: 44}, {id: "1", name: "George", age: 25, hasHair: true, hairColor: "Brown"}]
+var people    = [{id: "0", name: "Fred", age: 44}, {id: "1", name: "George", age: 25, hasHair: true, hairColor: "Brown", randomField: "First"}]
 const _assignIn = require("lodash/assignIn")
 
 router.get("/people", (req, res, next) => {
