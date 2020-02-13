@@ -11,6 +11,8 @@ const TerserPlugin            = require("terser-webpack-plugin")
 const BUILD_DIR               = path.resolve(__dirname, 'dist/')
 const APP_DIR                 = path.resolve(__dirname, 'src/client')
 
+process.env.ASSET_BASE = typeof process.env.ASSET_BASE === "undefined" ? "http://localhost:3000/" : process.env.ASSET_BASE
+
 
 //This is an example of a single entry script build for a react/single-page app. Hence "main"
 //For a multi-page site build, you'll want to create entries for each page script instead.
@@ -44,8 +46,10 @@ const buildConfig = (options = {}) => {
     entry: {}
     ,optimization
     ,output: {
-      path: BUILD_DIR,
       filename: "index.bundle.js" //this [name] is the entry name. i.e. 'main'
+      ,publicPath: process.env.ASSET_BASE
+      ,path: BUILD_DIR
+      ,chunkFilename: '[id].[hash].js'
     }
     ,mode
     ,plugins: [
