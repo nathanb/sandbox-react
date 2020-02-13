@@ -7,7 +7,6 @@ const MiniCssExtractPlugin    = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin       = require('html-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 const TerserPlugin            = require("terser-webpack-plugin")
-require("./src/server/config").init()
 
 const BUILD_DIR               = path.resolve(__dirname, 'dist/')
 const APP_DIR                 = path.resolve(__dirname, 'src/client')
@@ -48,7 +47,7 @@ const buildConfig = (options = {}) => {
       path: BUILD_DIR,
       filename: "index.bundle.js" //this [name] is the entry name. i.e. 'main'
     }
-    ,mode: process.env.NODE_ENV
+    ,mode
     ,plugins: [
       new webpack.IgnorePlugin({
         resourceRegExp: /^\.\/locale$/,
