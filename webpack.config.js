@@ -19,12 +19,16 @@ process.env.ASSET_BASE = typeof process.env.ASSET_BASE === "undefined" ? "http:/
 const buildConfig = (options = {}) => {
   let {name, mode} = options
   let devMode = mode !== "production"
-  let optimization = {}
+  let optimization = {
+    splitChunks: {
+      chunks: "all"
+    }
+  }
   if (!devMode)
-    optimization = {
+    _.assignIn(optimization, {
       minimize: !devMode
       ,minimizer: [new TerserPlugin(), new OptimizeCSSAssetsPlugin({})]
-    }
+    })
 
   let styleLoader = "style-loader"
   if (!devMode)
@@ -71,10 +75,10 @@ const buildConfig = (options = {}) => {
         inject: false
       })
       //TODO: Enable this to checkout your production build disk size
-      // ,new BundleAnalyzerPlugin({
-      //   analyzerMode: "static"
-      //   ,openAnalyzer: true
-      // })
+      ,new BundleAnalyzerPlugin({
+        analyzerMode: "static"
+        ,openAnalyzer: true
+      })
     ]
     ,module: {
       rules: [
@@ -109,7 +113,7 @@ const buildConfig = (options = {}) => {
       ]
     }
     ,devServer: {
-      contentBase: './dist'
+      contentBase: [path.join(__dirname, 'dist'), path.join(__dirname, 'assets')]
       ,hot: true
       ,port: 3000
       ,host: "0.0.0.0"

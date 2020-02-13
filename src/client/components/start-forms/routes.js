@@ -11,6 +11,7 @@ import Loading from "../common/loading"
 const PeoplePage = lazy(() => import("../start-context/list-page"))
 const PersonPage = lazy(() => import("./detail-page"))
 const PersonEditPage = lazy(() => import("./edit-page"))
+const TestChartPage = lazy(() => import("./test-chart"))
 
 
 
@@ -22,6 +23,7 @@ const Routes = () => (
       <Route exact path="/people" component={PeoplePage}/>
       <Route exact path="/people/:id" component={PersonPage}/>
       <Route exact path="/people/:id/edit" component={PersonEditPage}/>
+      <Route exact path="/chart" component={TestChartPage}/>
       <Route component={NotFoundPage} />
     </Switch>
   </Suspense>

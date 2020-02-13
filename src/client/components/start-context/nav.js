@@ -19,6 +19,9 @@ const HeaderNav = () => (
           <NavLink to="/people" exact={true} className="nav-link">People</NavLink>
         </li>
         <li className="nav-item">
+          <NavLink to="/chart" exact={true} className="nav-link">Test Chart (code splitting)</NavLink>
+        </li>
+        <li className="nav-item">
           <NavLink to="/about" exact={true} className="nav-link">About</NavLink>
         </li>
       </ul>
