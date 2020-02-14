@@ -1,0 +1,15 @@
+[
+  {
+    "id": "0",
+    "name": "Fred",
+    "age": 44
+  },
+  {
+    "id": "1",
+    "name": "George",
+    "age": 25,
+    "hasHair": true,
+    "hairColor": "Brown",
+    "randomField": "First"
+  }
+]
