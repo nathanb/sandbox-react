@@ -17,6 +17,12 @@ See: router options for different stages of the demo.
  - [Stage 4; Fancy stuff.. background-updates, using React Context](https://github.com/nathanb/sandbox-react/blob/master/src/client/index.js#L8).
  - [Stage 5; Forms & Validation](https://github.com/nathanb/sandbox-react/blob/master/src/client/index.js#L9).
    - [Stage 5, Part 2; Breaking apart re-usable components](https://github.com/nathanb/sandbox-react/blob/master/src/client/components/start-forms/routes.js#L10) (Enable this line).
+   
+   
+### After Stage 4
+I've enabled code splitting and lazy loading imports in the context step. This means that only the bundle and shared dependencies will pull down on the first load. Then if you navigate to the Chart (or any of the People) pages, it'll load the resources dynamically and pull down the dependencies.  
+
+**To show this, I pulled in a choropleth graph that requires `d3`, a pretty sizable dependency. It will only load if you load the component** 
 
 ## Setup
 
