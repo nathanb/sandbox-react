@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/nathanb/sandbox-react.svg?branch=master)](https://travis-ci.org/nathanb/sandbox-react)
 
 ## Demo
-For this [Live Demo](http://sandbox-react.iws.io/), I disabled the API hosting; so it kind of fakes the data saving/adding. But it still shows the code-splitting and basic navigation of a hosted client-side only React app.
+For this [Live Demo](http://sandbox-react.iws.io/), I disabled the API hosting; so it kind of fakes the data saving/adding. But it still shows the code-splitting and basic navigation of a hosted client-side only React app. Also, here is a [bundle analyzer report](http://sandbox-react.iws.io/report.html) of this build, which shows the breakdown of the final chunks.
 
 ## Notes
 I wanted to show the use of CORS with a client-side only hosted app connecting to a different hostname for server API calls. This is a deliberately over-simplified solution.
