@@ -9,17 +9,13 @@ import {createBrowserHistory} from "history"
 import Routes from "./components/start-forms/routes"
 // import Routes from "./components/start-no-api-demo/routes"
 
-import AppProvider from "./components/start-context/app-provider"
-
 import "../stylesheets/index.scss"
 
 const customHistory = createBrowserHistory()
 const target = document.querySelector('#main')
 
 render((
-  <AppProvider>
-    <Router history={customHistory}>
-      <Routes />
-    </Router>
-  </AppProvider>
+  <Router history={customHistory}>
+    <Routes />
+  </Router>
 ), target)
