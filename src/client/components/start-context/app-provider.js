@@ -24,7 +24,11 @@ const AppProvider = ({children}) => {
   }, [])
   return (
     <AppContext.Provider value={{
-      context: {user, account, authenticated, backgroundUpdateData, busy}
+      user
+      ,account
+      ,authenticated
+      ,backgroundUpdateData
+      ,busy
       ,setBusy: (v) => {setBusy(v)}
       ,refresh: () => {
         //do the refresh work..
