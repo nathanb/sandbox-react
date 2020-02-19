@@ -1,11 +1,12 @@
 import React from "react"
-import {useAppContext} from "./use-context-hook"
+import AppContext from "./app-context"
 
-const RandomDataUpdate = () => {
-  let {backgroundUpdateData} = useAppContext()
-  return (
-    <span className="nav-text mr-3"><code>random: {backgroundUpdateData}</code></span>
-  )
-}
+const RandomDataUpdate = () => (
+  <AppContext.Consumer>
+    {({context, refresh}) => (
+      <span className="nav-text mr-3"><code>random: {context.backgroundUpdateData}</code></span>)
+    }
+  </AppContext.Consumer>
+)
 
 export default RandomDataUpdate
