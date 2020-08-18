@@ -1,19 +1,19 @@
-import React, {useRef, useState} from "react"
-import PropTypes from "prop-types"
+import React, {useRef, useState} from 'react'
+import PropTypes from 'prop-types'
 
 const ValidatedForm = ({children, onValidSubmit}) => {
   const formRef = useRef(null)
-  const [className, setClassName] = useState("needs-validation")
+  const [className, setClassName] = useState('needs-validation')
 
   const onSubmit = (event) => {
-    setClassName("needs-validation")
+    setClassName('needs-validation')
     event.preventDefault()
     event.stopPropagation()
     let form = formRef.current
     if (form.checkValidity() === true) {
       if (onValidSubmit) onValidSubmit()
     }
-    setClassName("was-validated")
+    setClassName('was-validated')
   }
   return (
     <form ref={formRef} onSubmit={onSubmit} className={className} noValidate={true}>
@@ -23,8 +23,8 @@ const ValidatedForm = ({children, onValidSubmit}) => {
 }
 
 ValidatedForm.propTypes = {
-  onValidSubmit: PropTypes.func.isRequired
-  ,children: PropTypes.any.isRequired
+  onValidSubmit: PropTypes.func.isRequired,
+  children: PropTypes.any.isRequired,
 }
 
 

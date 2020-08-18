@@ -1,5 +1,5 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const RadioOption = ({label, name, value, checked, disabled, onChange}) => (
   <div className="form-check">
@@ -10,16 +10,16 @@ const RadioOption = ({label, name, value, checked, disabled, onChange}) => (
   </div>
 )
 RadioOption.propTypes = {
-  disabled: false
-  ,checked: false
+  disabled: false,
+  checked: false,
 }
 RadioOption.propTypes = {
-  disabled: PropTypes.bool
-  ,checked: PropTypes.bool.isRequired
-  ,value: PropTypes.string.isRequired
-  ,label: PropTypes.string
-  ,name: PropTypes.string.isRequired
-  ,onChange: PropTypes.func.isRequired
+  disabled: PropTypes.bool,
+  checked: PropTypes.bool.isRequired,
+  value: PropTypes.string.isRequired,
+  label: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 }
 
 export default RadioOption

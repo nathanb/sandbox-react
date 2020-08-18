@@ -1,6 +1,6 @@
-import React from "react"
-import PropTypes from "prop-types"
-import PersonRow from "./row"
+import React from 'react'
+import PropTypes from 'prop-types'
+import PersonRow from './row'
 
 const PeopleList = ({data}) => (
   <div>
@@ -16,7 +16,7 @@ const PeopleList = ({data}) => (
           </tr>
         </thead>
         <tbody>
-          {data.map((p,px) => (<PersonRow key={px} person={p} />))}
+          {data.map((p, px) => (<PersonRow key={px} person={p} />))}
         </tbody>
       </table>
     ) : (<span>No people to display</span>)}
@@ -24,7 +24,7 @@ const PeopleList = ({data}) => (
 )
 
 PeopleList.propTypes = {
-  data: PropTypes.array.isRequired
+  data: PropTypes.array.isRequired,
 }
 
 export default PeopleList

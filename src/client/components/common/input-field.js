@@ -1,5 +1,5 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const InputField = ({value, name, label, type, placeholder, required, onChange}) => (
   <div className="form-group row">
@@ -10,18 +10,18 @@ const InputField = ({value, name, label, type, placeholder, required, onChange})
   </div>
 )
 InputField.defaultProps = {
-  type: "text"
-  ,required: false
-  ,value: ""
-  ,label: null
-  ,name: "input"
+  type: 'text',
+  required: false,
+  value: '',
+  label: null,
+  name: 'input',
 }
 InputField.propTypes = {
-  type: PropTypes.string
-  ,required: PropTypes.bool
-  ,value: PropTypes.string.isRequired
-  ,label: PropTypes.string
-  ,name: PropTypes.string
-  ,onChange: PropTypes.func.isRequired
+  type: PropTypes.string,
+  required: PropTypes.bool,
+  value: PropTypes.string.isRequired,
+  label: PropTypes.string,
+  name: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
 }
 export default InputField

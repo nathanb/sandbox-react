@@ -1,9 +1,9 @@
-version: '3'
+version: '3.4'
 services:
   api:
     build:
       context: .
-      dockerfile: Dockerfile-dev
+      target: builder-client
     ports:
      - "3001:3001"
     volumes:
@@ -18,13 +18,17 @@ services:
   web:
     build:
       context: .
-      dockerfile: Dockerfile-dev
+      target: builder-client
     ports:
      - "3000:3000"
     volumes:
      - ./src:/home/node/app/src
      - ./bin:/home/node/app/bin
      - ./test:/home/node/app/test
+     - ./assets:/home/node/app/assets
+     - ./dist:/home/node/app/dist
+     - ./webpack.config.js:/home/node/app/webpack.config.js
+     - ./.babelrc.json:/home/node/app/.babelrc.json
     tty: true
     environment:
       HOSTNAME: "localhost:3000"

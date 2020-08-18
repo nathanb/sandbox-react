@@ -1,11 +1,11 @@
 import React from 'react'
-import {Route, Switch} from "react-router-dom"
+import {Route, Switch} from 'react-router-dom'
 
-import NotFoundPage from "../not-found-page"
-import IndexPage from "./index-page"
-import AboutPage from "./about-page"
-import PersonPage from "./detail-page"
-import PeoplePage from "./list-simple-page"
+import NotFoundPage from '../not-found-page'
+import IndexPage from './index-page'
+import AboutPage from './about-page'
+import PersonPage from './detail-page'
+import PeoplePage from './list-simple-page'
 // import PeoplePage from "./list-page"
 
 const Routes = () => (
