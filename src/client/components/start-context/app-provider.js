@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react"
-import AppContext from "./app-context"
+import React, {useState, useEffect} from 'react'
+import AppContext from './app-context'
 
 const AppProvider = ({children}) => {
   const [user, setUser] = useState(null)
@@ -16,31 +16,31 @@ const AppProvider = ({children}) => {
       console.log(`AppContext.Provider: interval, data changed to: ${updated}`)
     }, 5000)
 
-    //disposal cleanup
+    // disposal cleanup
     return () => {
-      console.log("AppContext.Provider: cleanup")
+      console.log('AppContext.Provider: cleanup')
       clearInterval(intervalId)
     }
   }, [])
   return (
     <AppContext.Provider value={{
-      user
-      ,account
-      ,authenticated
-      ,backgroundUpdateData
-      ,busy
-      ,setBusy: (v) => {setBusy(v)}
-      ,refresh: () => {
-        //do the refresh work..
+      user,
+      account,
+      authenticated,
+      backgroundUpdateData,
+      busy,
+      setBusy: (v) => { setBusy(v) },
+      refresh: () => {
+        // do the refresh work..
         setBusy(true)
         setTimeout(() => {
-          console.log("AppContext.Provider: manual refresh")
+          console.log('AppContext.Provider: manual refresh')
           setBusy(false)
-          setUser({username: "fred"})
-          setAccount({accountId: "123F"})
+          setUser({username: 'fred'})
+          setAccount({accountId: '123F'})
           setAuthenticated(true)
         }, 1000)
-      }
+      },
     }}>
       {children}
     </AppContext.Provider>

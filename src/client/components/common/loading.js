@@ -1,9 +1,10 @@
-import React from "react"
-import DefaultLayout from "../start-context/default-layout"
+import React from 'react'
+import DefaultLayout from '../start-context/default-layout'
+import Icon from './icon'
 
 const Loading = () => (
   <DefaultLayout>
-    <p className="lead">Loading.... <i className="fa fa-spin fa-sync"/></p>
+    <p className="lead">Loading.... <Icon spin icon="sync"/></p>
   </DefaultLayout>
 )
 

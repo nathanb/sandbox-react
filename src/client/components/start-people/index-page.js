@@ -1,9 +1,9 @@
-import React from "react"
-import {Link, useRouteMatch} from "react-router-dom"
-import DefaultLayout from "./default-layout"
+import React from 'react'
+import {Link, useRouteMatch} from 'react-router-dom'
+import DefaultLayout from './default-layout'
 
 const IndexPage = () => {
-  let match = useRouteMatch() //can use from anywhere
+  let match = useRouteMatch() // can use from anywhere
   return (
     <DefaultLayout>
       <h1>Home</h1>

@@ -1,28 +1,25 @@
-import React, {useEffect, useState} from "react"
-import {Link, useParams} from "react-router-dom"
-import fetchJson from "../../lib/fetch-json"
-import DefaultLayout from "../start-context/default-layout"
-import Alert from "../common/alert"
+import React, {useEffect, useState} from 'react'
+import {Link, useParams} from 'react-router-dom'
+import fetchJson from '../../lib/fetch-json'
+import DefaultLayout from '../start-context/default-layout'
+import Alert from '../common/alert'
 
 const PersonPage = () => {
   const [data, setData] = useState()
   const [error, setError] = useState(null)
   const params = useParams()
 
-  const loadPerson = async (personId) => {
+  const loadPerson = async(personId) => {
     console.log(`PersonPage: loadPerson called... personId: ${personId}`)
     let result = await fetchJson(`http://localhost:3001/people/${personId}`)
-    if (result.ok)
-      setData(result.json)
-    else
-      setError(result.errorMessage)
+    if (result.ok) { setData(result.json) } else { setError(result.errorMessage) }
   }
 
-  //will re-run on every render where the match.id is different.
+  // will re-run on every render where the match.id is different.
   useEffect(() => {
-    console.log("PersonPage: useEffect invoked...")
-    if (typeof params.id !== "undefined") loadPerson(params.id)
-    else setError("Invalid person id.")
+    console.log('PersonPage: useEffect invoked...')
+    if (typeof params.id !== 'undefined') loadPerson(params.id)
+    else setError('Invalid person id.')
   }, [params.id])
 
   return (
@@ -44,7 +41,7 @@ const PersonPage = () => {
       <h3>Two links</h3>
       <p>Render is called, but nothing changes. params.id remains the same, so useEffect is not triggered.</p>
       <p>
-        <button type="button" className="btn btn-secondary mr-1" onClick={() => {loadPerson(params.id)}}>Refresh</button>
+        <button type="button" className="btn btn-secondary mr-1" onClick={() => { loadPerson(params.id) }}>Refresh</button>
         <Link className="btn btn-primary" to={`/people/${params.id}/edit`}>Edit</Link>
       </p>
     </DefaultLayout>

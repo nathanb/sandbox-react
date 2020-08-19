@@ -1,5 +1,6 @@
-import React, {useContext} from "react"
-import AppContext from "./app-context"
+import React, {useContext} from 'react'
+import AppContext from './app-context'
+import Icon from '../common/icon'
 
 const CurrentUserNav = () => {
   let {user, refresh, busy} = useContext(AppContext)
@@ -9,9 +10,9 @@ const CurrentUserNav = () => {
     ) : (
       <span className="nav-text mr-3">
         {busy ? (
-          <i className="fa fa-spin fa-sync" />
+          <Icon icon="sync" spin/>
         ) : (
-          <a href="#" onClick={(e) => {e.preventDefault(); refresh()}}>Login</a>
+          <a href="#" onClick={(e) => { e.preventDefault(); refresh() }}>Login</a>
         )}
       </span>)
   )

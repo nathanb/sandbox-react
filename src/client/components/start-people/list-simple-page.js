@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from "react"
-import DefaultLayout from "./default-layout"
-import {Link} from "react-router-dom"
-import fetchJson from "../../lib/fetch-json"
+import React, {useState, useEffect} from 'react'
+import DefaultLayout from './default-layout'
+import {Link} from 'react-router-dom'
+import fetchJson from '../../lib/fetch-json'
 
 const PeoplePage = () => {
   const [people, setPeople] = useState([])
@@ -9,9 +9,9 @@ const PeoplePage = () => {
   const [error, setError] = useState(null)
 
   async function loadPeople() {
-    setStatus("loading...")
+    setStatus('loading...')
     setError(null)
-    const result = await fetchJson("http://localhost:3001/people")
+    const result = await fetchJson('http://localhost:3001/people')
     if (result.ok) {
       setPeople(result.json)
       setStatus(null)
@@ -20,10 +20,10 @@ const PeoplePage = () => {
     }
   }
 
-  const addPerson = async (totalPeople) => {
+  const addPerson = async(totalPeople) => {
     setError(null)
-    let newPerson = {name: "George", age: 30 + totalPeople}
-    let result = await fetchJson("http://localhost:3001/people", {method: "POST", json: newPerson})
+    let newPerson = {name: 'George', age: 30 + totalPeople}
+    let result = await fetchJson('http://localhost:3001/people', {method: 'POST', json: newPerson})
     if (result.ok) {
       let responseBody = result.json
       setStatus(`Added new person: ${responseBody.id}`)
@@ -34,8 +34,8 @@ const PeoplePage = () => {
   }
 
   useEffect(() => {
-    //happens every render
-    console.log("useEffect onload only, denoted by: []")
+    // happens every render
+    console.log('useEffect onload only, denoted by: []')
     loadPeople()
   }, [])
 
@@ -44,8 +44,8 @@ const PeoplePage = () => {
       <h1>People</h1>
       {error ? (<div className="alert alert-danger">{error}</div>) : null}
       <p>
-        <button className="btn btn-primary mr-1" onClick={() => {loadPeople()}}>Refresh</button>
-        <button className="btn btn-secondary" onClick={() => {addPerson(people.length)}}>Add</button>
+        <button className="btn btn-primary mr-1" onClick={() => { loadPeople() }}>Refresh</button>
+        <button className="btn btn-secondary" onClick={() => { addPerson(people.length) }}>Add</button>
       </p>
       {people.length ? (
         <table className="table table-striped">
@@ -56,7 +56,7 @@ const PeoplePage = () => {
             </tr>
           </thead>
           <tbody>
-            {people.map((p,px) => (
+            {people.map((p, px) => (
               <tr key={px}>
                 <td><Link to={`/people/${p.id}`}>{p.name}</Link></td>
                 <td>{p.age}</td>

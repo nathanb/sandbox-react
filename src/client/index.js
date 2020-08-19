@@ -1,24 +1,25 @@
 import React from 'react'
 import {render} from 'react-dom'
-import {Router} from "react-router-dom"
-import {createBrowserHistory} from "history"
+import {BrowserRouter as Router} from 'react-router-dom'
+import 'whatwg-fetch' // for IE Edge fetch (not covered by core-js)
 // import Routes from "./components/start-simple/routes"
 // import Routes from "./components/start-layout/routes"
 // import Routes from "./components/start-people/routes"
 // import Routes from "./components/start-context/routes"
-import Routes from "./components/start-forms/routes"
+import Routes from './components/start-forms/routes'
 // import Routes from "./components/start-no-api-demo/routes"
 
-import AppProvider from "./components/start-context/app-provider"
+import AppProvider from './components/start-context/app-provider'
 
-import "../stylesheets/index.scss"
+import '../stylesheets/index.scss'
 
-const customHistory = createBrowserHistory()
-const target = document.querySelector('#main')
+let target = document.createElement('div')
+target.id = 'main'
+document.body.appendChild(target)
 
 render((
   <AppProvider>
-    <Router history={customHistory}>
+    <Router>
       <Routes />
     </Router>
   </AppProvider>

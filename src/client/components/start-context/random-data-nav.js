@@ -1,5 +1,5 @@
-import React, {useContext} from "react"
-import AppContext from "./app-context"
+import React, {useContext} from 'react'
+import AppContext from './app-context'
 
 const RandomDataUpdate = () => {
   let {backgroundUpdateData} = useContext(AppContext)

@@ -1,6 +1,6 @@
-import React from "react"
-import {Link} from "react-router-dom"
-import DefaultLayout from "./default-layout"
+import React from 'react'
+import {Link} from 'react-router-dom'
+import DefaultLayout from './default-layout'
 
 const AboutPage = () => (
   <DefaultLayout>
