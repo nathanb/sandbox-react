@@ -32,8 +32,8 @@ I've enabled code splitting and lazy loading imports in the context step. This m
 I've provided both dev mode and a simulated production mode for this project. Dev mode will enable sourcemapping, hot module reload, and live api and client reloading upon changes.  Production mode will simply build a production version of the app and boot them up in readonly mode (no volume mappings). All production flags will be set.
 
  - Dev Mode: `docker-compose up`
- - Production Mode: `docker-compose -f prod.yml up`
- - Run tests in the container: `docker-compose run web npm run tests` or `./bin/t`
+ - Production Mode (now a 130MB docker image): `docker-compose -f prod.yml up`
+ - Run tests in the container: `docker-compose run web npm run test` or `./bin/t`
 
 ## References:
  - [Getting started with React (ui framework)](https://reactjs.org/docs/getting-started.html#learn-react)
@@ -45,4 +45,4 @@ I've provided both dev mode and a simulated production mode for this project. De
 ## Server-side frameworks
  - [@hapi/joi (server-side validation framework)](https://hapi.dev/family/joi/)
  - [Express 4 (minimalist web framework - simplifies http)](https://expressjs.com/en/guide/routing.html)
- - [Node.js 12 LTS](https://nodejs.org/dist/latest-v12.x/docs/api/)
+ - [Node.js 14](https://nodejs.org/dist/latest-v14.x/docs/api/)
