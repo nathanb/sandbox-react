@@ -32,4 +32,4 @@ COPY --chown=node:node ./assets ./assets
 COPY --chown=node:node ./bin ./bin
 COPY --chown=node:node ./src ./src
 EXPOSE 3000
-CMD ["npm", "start"]
+CMD ["npm", "run", "web"]

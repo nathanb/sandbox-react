@@ -20,12 +20,12 @@ See: router options for different stages of the demo.
  - [Stage 4; Fancy stuff.. background-updates, using React Context](https://github.com/nathanb/sandbox-react/blob/master/src/client/index.js#L8).
  - [Stage 5; Forms & Validation](https://github.com/nathanb/sandbox-react/blob/master/src/client/index.js#L9).
    - [Stage 5, Part 2; Breaking apart re-usable components](https://github.com/nathanb/sandbox-react/blob/master/src/client/components/start-forms/routes.js#L10) (Enable this line).
-   
-   
+
+
 ### After Stage 4
 I've enabled code splitting and lazy loading imports in the context step. This means that only the bundle and shared dependencies will pull down on the first load. Then if you navigate to the Chart (or any of the People) pages, it'll load the resources dynamically and pull down the dependencies.  
 
-**To show this, I pulled in a choropleth graph that requires `d3`, a pretty sizable dependency. It will only load if you load the component** 
+**To show this, I pulled in a choropleth graph that requires `d3`, a pretty sizable dependency. It will only load if you load the component**
 
 ## Setup
 
@@ -33,7 +33,7 @@ I've provided both dev mode and a simulated production mode for this project. De
 
  - Dev Mode: `docker-compose up`
  - Production Mode: `docker-compose -f prod.yml up`
- - Run tests in the container: `docker-compose -f test.yml run test` or `./bin/t`
+ - Run tests in the container: `docker-compose run web npm run tests` or `./bin/t`
 
 ## References:
  - [Getting started with React (ui framework)](https://reactjs.org/docs/getting-started.html#learn-react)

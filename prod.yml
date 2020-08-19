@@ -1,0 +1,23 @@
+version: '3.4'
+services:
+  api:
+    build:
+      context: .
+    ports:
+     - "3001:3001"
+    tty: true
+    environment:
+      HOSTNAME: "localhost:3001"
+      NODE_ENV: "development"
+      PORT: 3001
+    command: ["npm","run","api"]
+  web:
+    build:
+      context: .
+    ports:
+     - "3000:3000"
+    tty: true
+    environment:
+      HOSTNAME: "localhost:3000"
+      NODE_ENV: "development"
+    command: ["npm","run","web"]
