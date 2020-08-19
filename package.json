@@ -24,7 +24,7 @@
   },
   "browserslist": "defaults",
   "dependencies": {
-    "@hapi/joi": "^14.5.0",
+    "@hapi/joi": "^17.1.1",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.5",
@@ -32,9 +32,9 @@
     "debug": "^4.1.1",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
+    "helmet": "^4.1.0",
     "lodash": "^4.17.20",
     "moment": "^2.27.0",
-    "helmet": "^4.1.0",
     "moment-timezone": "^0.5.31",
     "morgan": "^1.10.0"
   },
