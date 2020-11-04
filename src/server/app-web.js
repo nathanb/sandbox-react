@@ -9,11 +9,11 @@ const path = require('path')
 // view engine setup
 app.enable('trust proxy') // enables trust for proxy terminated SSL.
 
-app.use(helmet.contentSecurityPolicy({
-  directives: {
-    defaultSrc: ["'self'", 'localhost:3001'],
-  },
-}))
+// app.use(helmet.contentSecurityPolicy({
+//   directives: {
+//     defaultSrc: ["'self'", 'localhost:3001'],
+//   },
+// }))
 app.use(helmet.dnsPrefetchControl())
 app.use(helmet.expectCt())
 app.use(helmet.frameguard())
