@@ -10,7 +10,7 @@ services:
       HOSTNAME: "localhost:3001"
       NODE_ENV: "development"
       PORT: 3001
-    command: ["npm","run","api"]
+    command: ["npm","run","start:api"]
   web:
     build:
       context: .
@@ -20,4 +20,4 @@ services:
     environment:
       HOSTNAME: "localhost:3000"
       NODE_ENV: "development"
-    command: ["npm","run","web"]
+    command: ["npm","run","start:web"]
