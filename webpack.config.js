@@ -35,8 +35,8 @@ const buildConfig = (options = {}) => {
     styleLoader = {
       loader: MiniCssExtractPlugin.loader,
       options: {
-        hmr: devMode,
-        sourceMap: true,
+        // hmr: devMode,
+        // sourceMap: true,
         publicPath: (resourcePath, context) => {
         // publicPath is the relative path of the resource to the context
         // e.g. for ./css/admin/main.css the publicPath will be ../../
